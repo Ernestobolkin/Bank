@@ -4,6 +4,7 @@ function App() {
 
 
   const getUsers = async () => {
+    console.log("works");
     const { data } = await axios.get("/users");
     console.log(data);
   };
