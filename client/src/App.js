@@ -1,20 +1,15 @@
-// import { useState } from 'react';
-import myApi from './api/Api';
+import axios from "axios";
 
 function App() {
-  // const [user, setUser] = useState('');
 
-  console.log(process.env.NODE_ENV);
 
-  const getReq = async () => {
-    const { data } = await myApi.get('/users');
+  const getUsers = async () => {
+    const { data } = await axios.get("http://localhost:8080/users");
     console.log(data);
   };
   return (
-    <div className='App'>
-      {' '}
-      Hello World!
-      <button onClick={getReq}>get</button>
+    <div>
+      <button onClick={() => getUsers()}>click Me</button>
     </div>
   );
 }

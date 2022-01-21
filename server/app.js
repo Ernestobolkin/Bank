@@ -1,27 +1,21 @@
 const express = require('express');
-
-//
 const cors = require('cors');
 const path = require('path');
-//
+require("dotenv").config();
+const cors = require("cors");
+const apiRouter = require("./routes/routes")
+
 
 const app = express();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 const publicPath = path.join(__dirname, 'build');
 app.use(cors());
 app.use(express.static(publicPath));
-
 app.use(express.json());
 
-app.get('/api/users', (req, res) => {
-  try {
-    res.status(200).send({ userName: 'Bob' });
-  } catch (e) {
-    res.status(400).send({ error: e.message });
-  }
-});
+app.use("/", apiRouter);
 
 //
 app.get('*', (req, res) => {
