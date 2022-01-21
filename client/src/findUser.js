@@ -1,8 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 export const FindUser = () => {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState("");
 
   const findUserByName = async (name) => {
     await axios
