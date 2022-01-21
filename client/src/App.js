@@ -4,7 +4,7 @@ function App() {
 
 
   const getUsers = async () => {
-    const { data } = await axios.get("http://localhost:8080/users");
+    const { data } = await axios.get("/users");
     console.log(data);
   };
   return (
