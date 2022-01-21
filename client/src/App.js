@@ -1,17 +1,15 @@
-import axios from "axios";
+import { GetAllUsers } from "./getAllUsers";
+import { CreateUser } from "./createUser";
+import { FindUser } from "./findUser";
+
 
 function App() {
-
-
-  const getUsers = async () => {
-    console.log("works");
-    const { data } = await axios.get("/users");
-    console.log(data);
-  };
   return (
-    <div>
-      <button onClick={() => getUsers()}>click Me</button>
-    </div>
+    <>
+      <GetAllUsers/>
+      <CreateUser/> <br/>
+      <FindUser/>
+    </>
   );
 }
 
