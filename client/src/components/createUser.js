@@ -14,7 +14,7 @@ export const CreateUser = () => {
     e.name === "UserCash" &&
       setUser({ name: user.name, cash: e.value, credit: user.credit });
     e.name === "UserCredit" &&
-      setUser({ name: user.name, cash: e.value, credit: e.value });
+      setUser({ name: user.name, cash: user.cash, credit: e.value });
   };
 
   const onClickHandel = async () => {
@@ -35,6 +35,7 @@ export const CreateUser = () => {
 
   return (
     <>
+     <h2>Create New User</h2>
       <input
         onChange={(e) => onChangeHandle(e.target)}
         name="UserName"

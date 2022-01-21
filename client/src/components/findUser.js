@@ -18,6 +18,7 @@ export const FindUser = () => {
   };
   return (
     <>
+      <h2>Find User By Name</h2>
       <input
         placeholder="Enter User Name To Find"
         value={value}
