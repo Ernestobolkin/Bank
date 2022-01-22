@@ -1,8 +1,14 @@
-const User = require("../mongoose/userSchema")
+const User = require("../mongoose/userSchema");
 
 const findUser = async (name) => {
-  const res = await User.find({ fullName: name });
-  return res;
+  return await User.find({ fullName: name });
 };
 
-module.exports = findUser ;
+const updateUser = async (user, name, data) => {
+  return await User.updateOne(
+    { fullName: name },
+    { cash: user[0].cash + data, credit: user[0].credit - data }
+  );
+};
+
+module.exports = { findUser, updateUser };

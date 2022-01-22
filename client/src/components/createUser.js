@@ -9,12 +9,9 @@ export const CreateUser = () => {
   });
 
   const onChangeHandle = (e) => {
-    e.name === "UserName" &&
-      setUser({ name: e.value, cash: user.cash, credit: user.credit });
-    e.name === "UserCash" &&
-      setUser({ name: user.name, cash: e.value, credit: user.credit });
-    e.name === "UserCredit" &&
-      setUser({ name: user.name, cash: user.cash, credit: e.value });
+    e.name === "UserName" && setUser({ ...user, name: e.value });
+    e.name === "UserCash" && setUser({ ...user, cash: e.value });
+    e.name === "UserCredit" && setUser({ ...user, credit: e.value });
   };
 
   const onClickHandel = async () => {
@@ -22,7 +19,7 @@ export const CreateUser = () => {
       fullName: user.name,
       cash: +user.cash,
       credit: +user.credit,
-    }
+    };
     await axios
       .post("http://localhost:8080/user/add", sendData)
       .then((res) => {
@@ -35,7 +32,7 @@ export const CreateUser = () => {
 
   return (
     <>
-     <h2>Create New User</h2>
+      <h2>Create New User</h2>
       <input
         onChange={(e) => onChangeHandle(e.target)}
         name="UserName"

@@ -7,6 +7,11 @@ const {
   getUser,
   deleteUser,
   editUser,
+  getllSortUsers,
+  withdraw,
+  depositing,
+  transferring,
+  deleteAll,
 } = require("../controllers/controller");
 
 apiRouter.get("/users", getAllUsers);
@@ -19,6 +24,14 @@ apiRouter.put("/user/edit/:name", editUser);
 
 apiRouter.delete("/user/:name", deleteUser);
 
+apiRouter.delete("/users/", deleteAll);
 
+apiRouter.get("/users/statistics", getllSortUsers);
+
+apiRouter.put("/users/withdraw", withdraw);
+
+apiRouter.put("/users/depositing", depositing);
+
+apiRouter.put("/users/transferring", transferring);
 
 module.exports = apiRouter;
