@@ -21,13 +21,13 @@ function App() {
         </Route>
 
         <Route path="/search" exact>
-          <GetAllUsers />
           <FindUser />
+          <GetAllUsers />
         </Route>
 
         <Route path="/manege" exact>
-          <DeleteAllUsers />
           <DeleteUser />
+          <DeleteAllUsers />
         </Route>
       </BrowserRouter>
     </>

@@ -12,8 +12,8 @@ export const GetAllUsers = () => {
       });
   };
   return (
-    <div>
-      <button onClick={() => getUsers()}>Get All Users</button>
+    <div className="multiContainer">
+      <button className="ui primary button" onClick={() => getUsers()}>Get All Users</button>
     </div>
   );
 };

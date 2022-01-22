@@ -13,7 +13,11 @@ export const DeleteAllUsers = () => {
   };
   return (
     <>
-      <button onClick={() => onClickHandle()}>Delete All Users</button>
+      <div className="multiContainer">
+        <button className="ui primary button" onClick={() => onClickHandle()}>
+          Delete All Users
+        </button>
+      </div>
     </>
   );
 };
