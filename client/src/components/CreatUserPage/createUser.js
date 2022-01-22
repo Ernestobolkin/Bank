@@ -22,7 +22,7 @@ export const CreateUser = () => {
       credit: +user.credit,
     };
     await axios
-      .post("http://localhost:8080/user/add", sendData)
+      .post("/user/add", sendData)
       .then((res) => {
         alert(res.data);
       })
@@ -30,6 +30,7 @@ export const CreateUser = () => {
         alert(error.response.data);
       });
   };
+
 
   return (
     <>

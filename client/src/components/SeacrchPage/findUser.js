@@ -6,7 +6,7 @@ export const FindUser = () => {
 
   const findUserByName = async (name) => {
     await axios
-      .get(`http://localhost:8080/user/${name}`)
+      .get(`/user/${name}`)
       .then((res) => {
         alert(
           `Name: ${res.data[0].fullName}, Cash: ${res.data[0].cash}, Credit: ${res.data[0].credit}`

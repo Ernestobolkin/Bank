@@ -6,8 +6,11 @@ import { DeleteUser } from "./components/ManegmantPage/deleteUser";
 import { DeleteAllUsers } from "./components/ManegmantPage/deleteAllUser";
 import { Navbar } from "./components/navBar";
 import { BrowserRouter, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
+  const [showUsers, SetShowUsers] = useState();
+
   return (
     <>
       <BrowserRouter>
@@ -22,7 +25,7 @@ function App() {
 
         <Route path="/search" exact>
           <FindUser />
-          <GetAllUsers />
+          <GetAllUsers showUsers={showUsers} SetShowUsers={SetShowUsers} />
         </Route>
 
         <Route path="/manege" exact>

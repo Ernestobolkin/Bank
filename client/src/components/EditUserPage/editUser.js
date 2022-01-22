@@ -21,7 +21,7 @@ export const EditUser = () => {
       credit: +values.credit,
     };
     await axios
-      .put(`http://localhost:8080/user/edit/${values.name}`, requestOptions)
+      .put(`/user/edit/${values.name}`, requestOptions)
       .then((res) => {
         alert(res.data);
       })

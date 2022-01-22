@@ -6,7 +6,7 @@ export const DeleteUser = () => {
 
   const onHandleClick = async () => {
     axios
-      .delete(`http://localhost:8080/user/${userName}`)
+      .delete(`/user/${userName}`)
       .then((res) => {
         alert(res.data);
       })
