@@ -58,11 +58,11 @@ const deleteUser = async (req, res) => {
 
 const deleteAll = async (req, res) => {
   try {
-    const allUsers =  await User.find()
-    if(allUsers.length >= 0 ){
+    const allUsers = await User.find();
+    if (allUsers.length >= 0) {
       await User.deleteMany({});
       res.status(200).send("All Users Has Been Deleted");
-    }else{
+    } else {
       throw new Error(`Sorry There Are No Users To Delete`);
     }
   } catch (error) {
@@ -135,6 +135,7 @@ const depositing = async (req, res) => {
 
 const transferring = async (req, res) => {
   const { name, sender, amount } = req.body;
+  console.log(name, sender, amount);
   try {
     const receiver = await findUser(name);
     const transmitter = await findUser(sender);

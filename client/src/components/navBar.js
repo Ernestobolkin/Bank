@@ -11,7 +11,7 @@ export const Navbar = () => {
   };
 
   return (
-    <div className="ui four item menu">
+    <div className="ui six item menu">
       <Link
         onClick={(e) => onHandleClick(e.target)}
         name="create"
@@ -43,6 +43,22 @@ export const Navbar = () => {
         to="/manege"
       >
         User Manegmant
+      </Link>
+      <Link
+        onClick={(e) => onHandleClick(e.target)}
+        name="transfer"
+        className="item"
+        to="/transfer"
+      >
+        Transfer To User
+      </Link>
+      <Link
+        onClick={(e) => onHandleClick(e.target)}
+        name="withdraw"
+        className="item"
+        to="/withdraw"
+      >
+        Withdraw
       </Link>
     </div>
   );
