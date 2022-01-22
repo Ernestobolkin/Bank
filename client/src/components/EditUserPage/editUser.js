@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../multi.style.scss";
 
 export const EditUser = () => {
   const [values, setValues] = useState({
@@ -9,30 +10,15 @@ export const EditUser = () => {
   });
 
   const onHandleChange = (event) => {
-    event.name === "name" &&
-      setValues({
-        name: event.value,
-        cash: values.cash,
-        credit: values.credit,
-      });
-    event.name === "cash" &&
-      setValues({
-        name: values.name,
-        cash: event.value,
-        credit: values.credit,
-      });
-    event.name === "credit" &&
-      setValues({
-        name: values.name,
-        cash: values.cash,
-        credit: event.value,
-      });
+    event.name === "name" && setValues({ ...values, name: event.value });
+    event.name === "cash" && setValues({ ...values, cash: event.value });
+    event.name === "credit" && setValues({ ...values, credit: event.value });
   };
 
   const onHandleClick = async () => {
     const requestOptions = {
-        cash: +values.cash,
-        credit: +values.credit,
+      cash: +values.cash,
+      credit: +values.credit,
     };
     await axios
       .put(`http://localhost:8080/user/edit/${values.name}`, requestOptions)
@@ -46,28 +32,35 @@ export const EditUser = () => {
 
   return (
     <>
-      <h2>Edit User</h2>
-      <input
-        placeholder="Enter User Name"
-        name="name"
-        onChange={(e) => onHandleChange(e.target)}
-      ></input>{" "}
-      <br />
-      <input
-        placeholder="Enter Cash"
-        name="cash"
-        type="number"
-        onChange={(e) => onHandleChange(e.target)}
-      ></input>{" "}
-      <br />
-      <input
-        placeholder="Enter Credit"
-        name="credit"
-        type="number"
-        onChange={(e) => onHandleChange(e.target)}
-      ></input>
-      <br />
-      <button onClick={() => onHandleClick()}>Save</button>
+      <div className="multiContainer">
+        <h2>Edit User</h2>
+        <div className="ui input">
+          <input
+            placeholder="Enter User Name"
+            name="name"
+            onChange={(e) => onHandleChange(e.target)}
+          ></input>
+        </div>
+        <div className="ui input">
+          <input
+            placeholder="Enter Cash"
+            name="cash"
+            type="number"
+            onChange={(e) => onHandleChange(e.target)}
+          ></input>
+        </div>
+        <div className="ui input">
+          <input
+            placeholder="Enter Credit"
+            name="credit"
+            type="number"
+            onChange={(e) => onHandleChange(e.target)}
+          ></input>
+        </div>
+        <button className="ui primary button" onClick={() => onHandleClick()}>
+          Save
+        </button>
+      </div>
     </>
   );
 };

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../multi.style.scss";
 
 export const CreateUser = () => {
   const [user, setUser] = useState({
@@ -32,31 +33,38 @@ export const CreateUser = () => {
 
   return (
     <>
-      <h2>Create New User</h2>
-      <input
-        onChange={(e) => onChangeHandle(e.target)}
-        name="UserName"
-        value={user.name}
-        placeholder="Enter User Name"
-      ></input>
-      <br />
-      <input
-        onChange={(e) => onChangeHandle(e.target)}
-        name="UserCash"
-        type="number"
-        value={user.cash}
-        placeholder="Enter Cash"
-      ></input>
-      <br />
-      <input
-        onChange={(e) => onChangeHandle(e.target)}
-        name="UserCredit"
-        type="number"
-        value={user.credit}
-        placeholder="Enter Credit"
-      ></input>
-      <br />
-      <button onClick={() => onClickHandel()}>Add User</button>
+      <div className="multiContainer">
+        <h2>Create New User</h2>
+        <div className="ui input">
+          <input
+            onChange={(e) => onChangeHandle(e.target)}
+            name="UserName"
+            value={user.name}
+            placeholder="Enter User Name"
+          ></input>
+        </div>
+        <div className="ui input">
+          <input
+            onChange={(e) => onChangeHandle(e.target)}
+            name="UserCash"
+            type="number"
+            value={user.cash}
+            placeholder="Enter Cash"
+          ></input>
+        </div>
+        <div className="ui input">
+          <input
+            onChange={(e) => onChangeHandle(e.target)}
+            name="UserCredit"
+            type="number"
+            value={user.credit}
+            placeholder="Enter Credit"
+          ></input>
+        </div>
+        <button className="ui primary button" onClick={() => onClickHandel()}>
+          Add User
+        </button>
+      </div>
     </>
   );
 };
